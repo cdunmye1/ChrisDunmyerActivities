@@ -12,4 +12,32 @@
     tools:context="westga.edu.chrisdunmyeractivities.DisplayMessageActivity"
     tools:showIn="@layout/activity_display_message"
     android:id="@+id/content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/firstMessageTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondMessage"
+        android:layout_below="@+id/firstMessageTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:hint="Enter second message" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/nextButton"
+        android:layout_below="@+id/secondMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:onClick="onClick" />
 </RelativeLayout>

@@ -1,20 +1,20 @@
 package westga.edu.chrisdunmyeractivities;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
+
+    public final static String EXTRA_MESSAGE = "westga.edu.chrisdunmyeractivities.MESSAGE";
+    public final static String EXTRA_SECOND_MESSAGE = "westga.edu.chrisdunmyeractivities.SECOND_MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,24 @@ public class DisplayMessageActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        Button nextButton = (Button)findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(nextButtonListener);
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
+        TextView textView = (TextView) findViewById(R.id.firstMessageTextView);
         textView.setText(message);
-
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
-        layout.addView(textView);
     }
+
+    View.OnClickListener nextButtonListener=
+            new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(DisplayMessageActivity.this, DisplayBothMessagesActivity.class);
+                    EditText secondMessage = (EditText) findViewById(R.id.secondMessage);
+                    String secondMessageString = secondMessage.getText().toString();
+                    intent.putExtra(EXTRA_MESSAGE, getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
+                    intent.putExtra(EXTRA_SECOND_MESSAGE, secondMessageString);
+                    startActivity(intent);
+                }
+            };
 }
