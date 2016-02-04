@@ -26,7 +26,9 @@ public class DisplayBothMessagesActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         Intent intent = getIntent();
         String message = intent.getStringExtra(DisplayMessageActivity.EXTRA_MESSAGE);
         String secondMessage = intent.getStringExtra(DisplayMessageActivity.EXTRA_SECOND_MESSAGE);

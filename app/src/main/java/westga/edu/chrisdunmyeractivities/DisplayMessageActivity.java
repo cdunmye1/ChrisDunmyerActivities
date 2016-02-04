@@ -32,7 +32,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
                         .show();
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         Button nextButton = (Button)findViewById(R.id.nextButton);
         nextButton.setOnClickListener(nextButtonListener);
         Intent intent = getIntent();
