@@ -4,4 +4,7 @@
     <string name="button_send">Send</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_message">My Message</string>
+    <string name="button_next">Next</string>
+    <string name="second_edit_message">Enter second message.</string>
+    <string name="title_activity_display_both_messages">DisplayBothMessagesActivity</string>
 </resources>
